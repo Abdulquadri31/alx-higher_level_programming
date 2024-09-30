@@ -2,6 +2,7 @@
 import sys
 
 def safe_function(fct, *args):
+    """Executes a function safely and handles exceptions."""
     try:
         return fct(*args)
     except Exception as e:
