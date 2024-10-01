@@ -1,4 +1,13 @@
 #!/usr/bin/python3
+"""
+Module that defines a Square class.
+"""
+
 class Square:
-    """An empty class that defines a square."""
-    pass
+    """
+    A class that defines a square.
+    """
+
+    def __init__(self):
+        """Initialize an empty Square instance."""
+        pass
