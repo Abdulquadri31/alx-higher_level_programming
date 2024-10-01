@@ -1,17 +1,24 @@
 #!/usr/bin/python3
+"""
+Module that defines a Square class.
+"""
+
+
 class Square:
-    """Defines a square."""
+    """
+    A class that defines a square with a specific size and position.
+    """
 
     def __init__(self, size=0, position=(0, 0)):
-        """Initialize the square with size and position.
+        """
+        Initializes a new square.
 
         Args:
-            size (int): The size of the square, default is 0.
-            position (tuple): The position of the square, default is (0, 0).
+            size (int, optional): The size of the square. Defaults to 0.
+            position (tuple, optional): The position of the square. Defaults to (0, 0).
 
         Raises:
-            TypeError: If size is not an integer or position is not a tuple of
-                       2 positive integers.
+            TypeError: If size is not an integer or if position is not a tuple of 2 positive integers.
             ValueError: If size is less than 0.
         """
         self.size = size
@@ -19,19 +26,25 @@ class Square:
 
     @property
     def size(self):
-        """Retrieve the size of the square."""
+        """
+        Retrieves the size of the square.
+
+        Returns:
+            int: The current size of the square.
+        """
         return self.__size
 
     @size.setter
     def size(self, value):
-        """Set the size of the square with validation.
+        """
+        Sets the size of the square.
 
         Args:
-            value (int): The size to be set.
+            value (int): The new size of the square.
 
         Raises:
-            TypeError: If value is not an integer.
-            ValueError: If value is less than 0.
+            TypeError: If size is not an integer.
+            ValueError: If size is less than 0.
         """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
@@ -41,42 +54,66 @@ class Square:
 
     @property
     def position(self):
-        """Retrieve the position of the square."""
+        """
+        Retrieves the position of the square.
+
+        Returns:
+            tuple: The current position of the square.
+        """
         return self.__position
 
     @position.setter
     def position(self, value):
-        """Set the position of the square with validation.
+        """
+        Sets the position of the square.
 
         Args:
-            value (tuple): The position to be set.
+            value (tuple): The new position of the square.
 
         Raises:
-            TypeError: If value is not a tuple of 2 positive integers.
+            TypeError: If position is not a tuple of 2 positive integers.
         """
         if (not isinstance(value, tuple) or len(value) != 2 or
-                not all(isinstance(num, int) and num >= 0 for num in value)):
+                not all(isinstance(i, int) and i >= 0 for i in value)):
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 
     def area(self):
-        """Return the area of the square."""
+        """
+        Calculates the area of the square.
+
+        Returns:
+            int: The area of the square.
+        """
         return self.__size ** 2
 
     def my_print(self):
-        """Print the square using the character # with the correct position."""
+        """
+        Prints the square with the character #, using position for spacing.
+        If size is 0, prints an empty line.
+        """
         if self.__size == 0:
             print("")
             return
-        print("\n" * self.__position[1], end="")
+
+        for i in range(self.__position[1]):
+            print("")  # Print empty lines for vertical position
         for i in range(self.__size):
             print(" " * self.__position[0] + "#" * self.__size)
 
     def __str__(self):
-        """Return the string representation of the square."""
+        """
+        Returns the string representation of the square.
+
+        Returns:
+            str: The square printed using the # character.
+        """
+        output = []
         if self.__size == 0:
             return ""
-        result = "\n" * self.__position[1]
+
+        for i in range(self.__position[1]):
+            output.append("")  # Add empty lines for vertical position
         for i in range(self.__size):
-            result += " " * self.__position[0] + "#" * self.__size + "\n"
-        return result.rstrip()
+            output.append(" " * self.__position[0] + "#" * self.__size)
+        return "\n".join(output)
