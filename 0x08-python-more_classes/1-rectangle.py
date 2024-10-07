@@ -1,20 +1,29 @@
 #!/usr/bin/python3
+"""
+This module defines a class Rectangle with private attributes width and height.
+"""
+
+
 class Rectangle:
-    """Defines a rectangle."""
+    """
+    A class that defines a rectangle.
+    """
 
     def __init__(self, width=0, height=0):
-        """Initialize a new Rectangle.
+        """
+        Initialize the Rectangle instance with optional width and height.
 
         Args:
-            width (int): Width of the rectangle (default is 0).
-            height (int): Height of the rectangle (default is 0).
+            width (int): The width of the rectangle.
+            height (int): The height of the rectangle.
         """
         self.width = width
         self.height = height
 
     @property
     def width(self):
-        """Getter method for the width attribute.
+        """
+        Retrieve the width of the rectangle.
 
         Returns:
             int: The width of the rectangle.
@@ -23,10 +32,11 @@ class Rectangle:
 
     @width.setter
     def width(self, value):
-        """Setter method for the width attribute.
+        """
+        Set the width of the rectangle.
 
         Args:
-            value (int): The new width value.
+            value (int): The width value to set.
 
         Raises:
             TypeError: If width is not an integer.
@@ -40,7 +50,8 @@ class Rectangle:
 
     @property
     def height(self):
-        """Getter method for the height attribute.
+        """
+        Retrieve the height of the rectangle.
 
         Returns:
             int: The height of the rectangle.
@@ -49,10 +60,11 @@ class Rectangle:
 
     @height.setter
     def height(self, value):
-        """Setter method for the height attribute.
+        """
+        Set the height of the rectangle.
 
         Args:
-            value (int): The new height value.
+            value (int): The height value to set.
 
         Raises:
             TypeError: If height is not an integer.
