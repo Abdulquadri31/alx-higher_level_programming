@@ -1,0 +1,28 @@
+========================
+Tests for text_indentation
+========================
+
+>>> text_indentation("Hello. How are you? I am fine.")
+Hello.
+
+How are you?
+
+I am fine.
+
+>>> text_indentation("This is a test: will it pass?")
+This is a test:
+
+will it pass?
+
+>>> text_indentation("What? This is not good. Really?")
+What?
+
+This is not good.
+
+Really?
+
+>>> text_indentation("")
+>>> text_indentation(123)
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
