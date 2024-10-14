@@ -1,0 +1,74 @@
+# Test 1: Check that the list is printed in sorted order
+$ cat 1-main.py
+#!/usr/bin/python3
+MyList = __import__('1-my_list').MyList
+
+my_list = MyList()
+my_list.append(1)
+my_list.append(4)
+my_list.append(2)
+my_list.append(3)
+my_list.append(5)
+print(my_list)
+my_list.print_sorted()
+print(my_list)
+
+$ ./1-main.py
+[1, 4, 2, 3, 5]
+[1, 2, 3, 4, 5]
+[1, 4, 2, 3, 5]
+
+# Test 2: Check with an empty list
+$ cat 1-main.py
+#!/usr/bin/python3
+MyList = __import__('1-my_list').MyList
+
+my_list = MyList()
+print(my_list)
+my_list.print_sorted()
+print(my_list)
+
+$ ./1-main.py
+[]
+[]
+[]
+
+# Test 3: Check with a list that is already sorted
+$ cat 1-main.py
+#!/usr/bin/python3
+MyList = __import__('1-my_list').MyList
+
+my_list = MyList()
+my_list.append(1)
+my_list.append(2)
+my_list.append(3)
+my_list.append(4)
+my_list.append(5)
+print(my_list)
+my_list.print_sorted()
+print(my_list)
+
+$ ./1-main.py
+[1, 2, 3, 4, 5]
+[1, 2, 3, 4, 5]
+[1, 2, 3, 4, 5]
+
+# Test 4: Check with a list of repeated elements
+$ cat 1-main.py
+#!/usr/bin/python3
+MyList = __import__('1-my_list').MyList
+
+my_list = MyList()
+my_list.append(3)
+my_list.append(3)
+my_list.append(2)
+my_list.append(5)
+my_list.append(2)
+print(my_list)
+my_list.print_sorted()
+print(my_list)
+
+$ ./1-main.py
+[3, 3, 2, 5, 2]
+[2, 2, 3, 3, 5]
+[3, 3, 2, 5, 2]
